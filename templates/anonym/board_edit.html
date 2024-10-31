@@ -1,0 +1,29 @@
+
+{% extends 'frame.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h1>게시글 수정 작성</h1>
+    <form method="post" action="{% url 'board:edit' post.id %}">
+        {% csrf_token %}
+        제목 : <input type="text" name="title" class="form-control" value="{{ post.title }}"><br>
+        내용 : <textarea name="profile" class="form-control">{{ post.content }}</textarea><br>
+        <div style="display: flex; gap: 10px">
+            <div style="flex:1">
+            비밀번호 : <input type="text" name="passwd" class="form-control" value="{{ post.passwd }}"><br>
+            </div>
+            <div style="flex:1">
+            작성자 : <input type="text" name="writer" class="form-control" value="{{ post.writer }}"><br>
+            </div>
+        </div>
+        <input type="submit" value="수정확인" class="btn btn-danger">
+    </form>
+</div>
+
+
+
+
+
+
+{% endblock %}

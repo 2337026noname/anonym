@@ -1,0 +1,10 @@
+tr:nth-child(odd) {
+    color : white;
+    background-color: brown;
+}
+
+tr:nth-child(even) {
+    background-color: yellow;
+}
+
+td { text-align: center; }

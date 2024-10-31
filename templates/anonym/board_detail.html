@@ -1,0 +1,23 @@
+{% extends 'frame.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1>게시글 상세 보기</h1>
+    <table class="table table-bordered" >
+        <tr class="table-dark">
+            <td style="width:5%">No.</td>
+            <td style="width:5%">{{ forloop.revcounter }}</td>
+            <td style="width:5%">제목</td>
+            <td style="width:70%">{{ post.title }}</td>
+            <td style="width:7%">조회수</td>
+            <td>{{ post.count }}</td>
+        </tr>
+    </table>
+    <h2>내용</h2>
+    <div>
+        <p>{{ post.content }}</p>
+    </div>
+<a href="{% url 'board:editform' post.id %}" class="btn btn-primary mb-3">수정하기</a>
+<a href="{% url 'board:delete' post.id %}" class="btn btn-primary mb-3">삭제</a>
+</div>
+{% endblock %}

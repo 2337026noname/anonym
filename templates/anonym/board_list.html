@@ -1,0 +1,30 @@
+{% extends 'frame.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <a href="{% url 'board:input' %}" class="btn btn-primary mb-3">글쓰기</a>
+
+    <table class="table table-bordered">
+        <tr class="table-dark">
+            <td style="width:5%">번호</td>
+            <td style="width:60%">제목</td>
+            <td style="width:10%">작성자</td>
+        </tr>
+        {% if post_list %}
+            {% for post in post_list %}
+                <tr>
+                    <td>{{ forloop.revcounter }}</td>  <!-- 번호 표시 -->
+                    <td><a href="{% url 'board:detail' post.id %}">{{ post.title }}</a></td>  <!-- post 사용 -->
+                    <td>{{ post.writer }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4">게시글이 없습니다.</td>
+            </tr>
+        {% endif %}
+    </table>
+</div>
+
+{% endblock %}
